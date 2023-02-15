@@ -8,5 +8,5 @@ int main(){
     fclose(fptr);
     printf("%s\n" , content);
     free(content);
-       return 0;
+     return 0;
 }
