@@ -8,5 +8,9 @@ int main(){
     fclose(fptr);
     printf("%s\n" , content);
     free(content);
+    int size = sizeof(FILE);
+    printf("Size of the type FILE is:%d\n",size);
+    int size2 = sizeof(*fptr);
+    printf("Size of the pointer *fptr:%d\n",size2);
      return 0;
 }
