@@ -2,19 +2,30 @@
 #include <stdlib.h>
 int main(){
     FILE *fptr;
-    char *content =  (char*) malloc(999999999);
     fptr=fopen("input.txt","r");
     int readBytes = 0;
-    int szczepIQ = 0;
+    int variableX = 0;
+    int i = 0;
+    int content_size = 4;
+    char *content =  (char*) malloc(content_size);
     do
     {
-     szczepIQ = fscanf(fptr, "%c", content + readBytes);
-     readBytes += szczepIQ;
-    } while (szczepIQ>0);
+        do
+        {
+            variableX = fgetc(fptr);
+            content[i] = (char)variableX;
+            i=i+1;
+        } while (i<content_size && variableX != EOF);
+        content[i] = 0;
+        i = 0;
+        if (variableX != EOF && i != 1){
+            printf("%s" , content);
+        }
+    } while (variableX!=EOF);
+    printf("\n");
     content[readBytes+1] = 0;
     fclose(fptr);
-    printf("%s\n" , content);
-    printf("%d\n" , szczepIQ);
+    printf("ilosc znakuw:%d\n" , readBytes);
     free(content);
     int size = sizeof(FILE);
     printf("Size of the type FILE is:%d\n",size);
