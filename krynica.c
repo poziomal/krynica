@@ -21,6 +21,9 @@ int main(){
         if (variableX != EOF && i != 1){
             printf("%s" , content);
         }
+        if ((variableX == EOF) && (readBytes == 0)){
+            printf("plik pusty"); 
+        }
     } while (variableX!=EOF);
     printf("\n");
     content[readBytes+1] = 0;
